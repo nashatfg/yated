@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>נשאת גאנם | ייעוץ פנסיוני ופיננסי</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy-mid: #1a2e45;
+  --navy-light: #243b55;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --cream: #f5f0e8;
+  --cream-dark: #ede6d6;
+  --red: #b91c1c;
+  --green: #15803d;
+  --green-wa: #16a34a;
+  --text: #111827;
+  --muted: #4b5563;
+  --border: #d8cfc0;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.65;
+  padding-bottom: 72px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 24px 60px;
+}
+
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  top: -200px;
+  left: -200px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 40px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 0.03em;
+  margin-bottom: 28px;
+}
+
+.hero-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero h1 {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(36px, 7vw, 62px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.hero h1 em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 3vw, 20px);
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 56px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 0.01em;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba(201,168,76,0.5);
+  animation: vip-pulse 2.2s infinite;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); animation: none; }
+@keyframes vip-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.55); }
+  60%  { box-shadow: 0 0 0 14px rgba(201,168,76,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: white; }
+.btn-wa-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-wa-solid:hover { background: #15803d; transform: translateY(-2px); }
+
+.hero-proof {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 40px;
+}
+.proof-item { text-align: center; }
+.proof-num {
+  display: block;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.proof-lbl {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 300;
+}
+
+/* ── WHO IS THIS FOR ── */
+.section {
+  padding: 80px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.section-sub {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+/* Audience cards */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.aud-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 22px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.aud-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+
+.aud-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 22px;
+  color: var(--gold);
+}
+
+.aud-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.aud-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.aud-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  background: #e8f5ee;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* ── PAIN SECTION ── */
+.pain-section {
+  background: var(--navy);
+  padding: 80px 24px;
+}
+.pain-inner { max-width: 900px; margin: 0 auto; }
+.pain-inner .section-title { color: var(--white); }
+.pain-inner .section-sub { color: rgba(255,255,255,0.5); }
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.pain-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 26px 22px;
+}
+
+.pain-number {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.pain-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.pain-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+/* ── CASE STUDY CARD (compact – committee recommendation) ── */
+.viz-section { padding: 80px 24px; background: var(--cream-dark); }
+.viz-inner { max-width: 760px; margin: 0 auto; }
+
+.case-card {
+  background: var(--white);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.case-header {
+  background: var(--navy);
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.case-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 900; color: var(--navy);
+  flex-shrink: 0;
+}
+.case-name { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+.case-role { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+.case-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.case-badge {
+  font-size: 11px; padding: 3px 10px; border-radius: 20px;
+  border: 1px solid rgba(201,168,76,0.35); color: var(--gold-light);
+}
+
+.case-body { padding: 28px; }
+
+/* שלושה מספרים */
+.case-trio {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.trio-box {
+  border-radius: 12px; padding: 18px 16px;
+  border: 1px solid var(--border);
+}
+.trio-box.trio-bad { background: #fef3f2; border-color: #fbc9c6; }
+.trio-box.trio-good { background: #f0faf4; border-color: #9dd6b8; }
+.trio-label { font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+.trio-amount { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(18px,3.5vw,26px); font-weight: 700; margin-bottom: 4px; }
+.trio-amount.bad { color: var(--red); }
+.trio-amount.good { color: var(--green); }
+.trio-fee { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+.bad-fee { color: var(--red); }
+.good-fee { color: var(--green); }
+.trio-total { font-size: 11px; color: var(--muted); }
+.trio-arrow { text-align: center; flex-shrink: 0; }
+
+/* ההפרש הגדול */
+.case-diff {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.case-diff-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 6px; }
+.case-diff-num {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(36px, 8vw, 52px);
+  font-weight: 900; color: var(--gold); line-height: 1;
+  margin-bottom: 6px;
+}
+.case-diff-sub { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+/* אזהרה */
+.case-alert {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: #fffbeb; border: 1px solid #fcd34d;
+  border-radius: 10px; padding: 14px 16px; margin-bottom: 20px;
+}
+
+/* ציר זמן */
+.case-timeline { margin-bottom: 20px; }
+.case-tl-title { font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 12px; }
+.tl-rows { display: flex; flex-direction: column; gap: 8px; }
+.tl-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.tl-age { width: 48px; color: var(--muted); flex-shrink: 0; }
+.tl-track { flex: 1; background: var(--cream-dark); border-radius: 4px; height: 6px; }
+.tl-fill { height: 6px; border-radius: 4px; background: var(--gold); }
+.tl-bal { width: 60px; font-weight: 700; color: var(--text); flex-shrink: 0; }
+.tl-rates { width: 150px; color: var(--muted); flex-shrink: 0; text-align: left; }
+
+/* CTA */
+.case-cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: #25D366; color: var(--white);
+  padding: 15px 20px; border-radius: 10px;
+  font-size: 16px; font-weight: 700; text-decoration: none;
+  width: 100%; margin-bottom: 12px; transition: background 0.2s;
+}
+.case-cta:hover { background: #1da851; }
+.case-note { font-size: 11px; color: var(--muted); text-align: center; }
+
+@media (max-width: 520px) {
+  .case-trio { grid-template-columns: 1fr; }
+  .trio-arrow { transform: rotate(90deg); }
+  .case-body { padding: 20px 16px; }
+  .tl-rates { display: none; }
+}
+
+/* ── SIMULATORS ── */
+.sim-section {
+  padding: 80px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tabs-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.tab-btn {
+  background: var(--white);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 18px 10px;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Heebo', sans-serif;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.tab-btn i { display: block; font-size: 22px; margin-bottom: 6px; color: var(--navy); }
+.tab-btn:hover { border-color: var(--gold); }
+.tab-btn.active { border-color: var(--navy); background: var(--navy); color: var(--white); }
+.tab-btn.active i { color: var(--gold); }
+
+.tab-content { display: none; }
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.sim-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.sim-vip {
+  background: #fffaef;
+  border: 1px solid #e8c97a;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.sim-vip i { color: var(--gold); font-size: 24px; flex-shrink: 0; }
+.sim-vip-text a { color: var(--navy); font-weight: 700; text-decoration: none; }
+.sim-vip-text a:hover { color: var(--gold); }
+
+.input-row { margin-bottom: 24px; }
+.input-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.input-val { color: var(--gold); font-weight: 700; }
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--navy);
+  cursor: pointer;
+  height: 4px;
+}
+
+.sim-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Heebo', sans-serif;
+  transition: background 0.2s;
+}
+.sim-btn:hover { background: var(--navy-mid); }
+
+.sim-result {
+  display: none;
+  margin-top: 24px;
+  background: #f0faf4;
+  border: 1px solid #9dd6b8;
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+}
+.sim-result-lbl { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+.sim-result-num {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--green);
+}
+.sim-note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+/* ── TESTIMONIALS ── */
+.testi-section {
+  background: var(--navy);
+  padding: 80px 24px;
+}
+.testi-inner { max-width: 900px; margin: 0 auto; }
+.testi-inner .section-title { color: var(--white); }
+.testi-inner .section-sub { color: rgba(255,255,255,0.45); }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.testi-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 28px;
+}
+.testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+.testi-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testi-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+.testi-name { font-size: 14px; font-weight: 700; color: var(--white); }
+.testi-role { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+/* ── ABOUT ── */
+.about-section {
+  padding: 80px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 600px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+.about-photo-wrap {
+  text-align: center;
+}
+.about-photo-placeholder {
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  background: var(--navy);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 60px;
+}
+.about-name {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.about-title-tag { font-size: 13px; color: var(--muted); }
+
+.about-body .section-title { font-size: 30px; }
+.about-text { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+.about-text strong { color: var(--text); font-weight: 700; }
+
+.about-creds {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+}
+.cred-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.cred-item i { color: var(--gold); font-size: 16px; }
+
+/* ── PASSPORT CARD ── */
+.passport-section {
+  background: var(--cream-dark);
+  padding: 60px 24px;
+}
+.passport-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .passport-inner { flex-direction: column; text-align: center; }
+}
+.passport-icon { font-size: 64px; flex-shrink: 0; }
+.passport-title { font-family: 'Frank Ruhl Libre', serif; font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+.passport-text { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+.btn-passport {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-passport:hover { background: var(--navy-mid); }
+
+/* ── STICKY FOOTER ── */
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 8px 10px;
+  display: flex;
+  gap: 6px;
+  z-index: 1000;
+}
+.sticky-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.sticky-wa { background: #25D366; color: white; }
+.sticky-call { background: var(--navy); color: white; }
+.sticky-vip { background: var(--gold); color: var(--navy); font-weight: 800; }
+.sticky-save { background: var(--cream-dark); color: var(--navy); border: none; cursor: pointer; font-family: 'Heebo', sans-serif; }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* ── HERO REVIEW CARD ── */
+.hero-review {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 60px;
+  padding: 10px 20px;
+  margin-bottom: 36px;
+}
+.review-avatar-small {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+.review-text { text-align: right; }
+.review-quote { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 400; }
+.review-name { font-size: 11px; color: rgba(255,255,255,0.4); }
+.review-stars { font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+
+/* ── TRACK BUTTONS ── */
+.track-btn {
+  flex: 1; padding: 11px 16px; border-radius: 8px; border: 2px solid var(--border);
+  background: var(--white); color: var(--muted); font-size: 15px; font-weight: 600;
+  cursor: pointer; font-family: 'Heebo', sans-serif; display: flex; align-items: center;
+  justify-content: center; gap: 7px; transition: all 0.2s;
+}
+.track-btn:hover { border-color: var(--navy); color: var(--navy); }
+.track-active { border-color: var(--navy) !important; background: var(--navy) !important; color: var(--white) !important; }
+
+/* ── SIMULATOR EXTRAS ── */
+.sim-card-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; color: var(--navy); display: flex; align-items: center; gap: 10px; }
+.sim-card-title i { color: var(--gold); }
+
+.sim-divider {
+  text-align: center; font-size: 13px; font-weight: 700; color: var(--muted);
+  border-top: 1px solid var(--border); padding-top: 16px; margin: 16px 0 20px;
+}
+
+.sim-vip-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--navy); color: var(--white);
+  padding: 8px 16px; border-radius: 8px; font-size: 13px;
+  font-weight: 700; text-decoration: none; margin-top: 8px;
+  transition: background 0.2s;
+}
+.sim-vip-link:hover { background: var(--navy-mid); }
+
+.toggle-group { display: flex; gap: 8px; }
+.toggle-btn {
+  flex: 1; padding: 10px 12px; border-radius: 8px;
+  border: 2px solid var(--border); background: var(--white);
+  color: var(--muted); font-size: 14px; font-weight: 600;
+  cursor: pointer; font-family: 'Heebo', sans-serif; transition: all 0.2s;
+}
+.toggle-btn:hover { border-color: var(--navy); color: var(--navy); }
+.toggle-btn.active { border-color: var(--navy); border-width: 2px; background: var(--navy); color: var(--white); }
+
+.sim-select {
+  width: 100%; padding: 12px 14px; border-radius: 8px;
+  border: 1px solid var(--border); font-family: 'Heebo', sans-serif;
+  font-size: 15px; font-weight: 600; color: var(--text);
+  background: var(--white); cursor: pointer;
+}
+
+.checkbox-wrapper {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--cream-dark); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 16px; margin-bottom: 16px;
+  cursor: pointer; font-size: 14px; font-weight: 600; color: var(--muted);
+}
+.checkbox-wrapper input { width: 18px; height: 18px; accent-color: var(--navy); flex-shrink: 0; }
+.checkbox-wrapper.active { border-color: var(--gold); background: #fffaef; color: var(--text); }
+
+/* Compare grid (pension result) */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.comp-card { padding: 16px; border-radius: 12px; text-align: center; border: 2px solid transparent; }
+.comp-card.bad { background: #fef2f2; border-color: #fca5a5; }
+.comp-card.good { background: #f0fdf4; border-color: #6ee7b7; transform: scale(1.02); box-shadow: 0 4px 16px rgba(16,185,129,0.1); }
+.comp-title { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.comp-card.bad .comp-title { color: var(--red); }
+.comp-card.good .comp-title { color: var(--green); }
+.comp-val { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(18px, 4vw, 24px); font-weight: 700; color: var(--navy); }
+
+.diff-banner {
+  background: var(--navy); color: var(--white);
+  border-radius: 10px; padding: 16px 20px;
+  font-size: 15px; font-weight: 700;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; margin-bottom: 14px; flex-wrap: wrap;
+}
+.diff-banner span { font-family: 'Frank Ruhl Libre', serif; font-size: 28px; font-weight: 900; color: var(--gold); }
+
+.sim-wa-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: #25D366; color: var(--white); padding: 14px 20px;
+  border-radius: 10px; font-size: 15px; font-weight: 700;
+  text-decoration: none; width: 100%; margin-bottom: 12px;
+  transition: background 0.2s;
+}
+.sim-wa-btn:hover { background: #1da851; }
+
+@media (max-width: 520px) {
+  .hero-proof { gap: 24px; }
+  .proof-num { font-size: 26px; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .diff-amount { font-size: 38px; }
+  .about-grid { gap: 28px; }
+  .passport-inner { padding: 28px 20px; }
+  .sim-card { padding: 22px 16px; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .diff-banner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      תכנון פנסיוני עצמאי למשפחות, מורים, רופאים ועובדי מדינה
+    </div>
+
+    <!-- Social proof pill -->
+    <div class="hero-review">
+      <div class="review-avatar-small">ד.מ</div>
+      <div class="review-text">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">גיליתי שאני מפסידה +₪66,027 בדמי ניהול</div>
+        <div class="review-name">ד. מרגלית – מורה לחינוך מיוחד, עפולה</div>
+      </div>
+    </div>
+
+    <h1>הפנסיה שלך<br>שוחקת בשקט.<br><em>בלי שתדע.</em></h1>
+
+    <p class="hero-sub">
+      אתה עובד קשה. משלם לפנסיה מדי חודש. אבל אף אחד לא אמר לך כמה דמי ניהול גבוהים עולים לך לאורך השנים – במספרים אמיתיים.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="https://surense.com/app/p/lzcXHxM" class="btn-primary">
+        <i class="fas fa-crown"></i>
+        בדיקת פנסיה חינמית – VIP
+      </a>
+      <a href="https://wa.me/972525810047" class="btn-wa-solid">
+        <i class="fab fa-whatsapp"></i>
+        שאל שאלה בוואטסאפ
+      </a>
+    </div>
+
+    <div class="hero-proof">
+      <div class="proof-item">
+        <span class="proof-num">10+</span>
+        <span class="proof-lbl">שנות ניסיון</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-num">₪100K+</span>
+        <span class="proof-lbl">חיסכון ממוצע ללקוח</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-num">100%</span>
+        <span class="proof-lbl">עצמאי מחברות ביטוח</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════ WHO IS THIS FOR ══════════════════════════════ -->
+<section class="section">
+  <div class="section-label">קהל היעד</div>
+  <h2 class="section-title">לאנשים שיש להם<br>הכנסה – אבל אין להם זמן</h2>
+  <p class="section-sub">
+    אם אתה עובד קשה, מרוויח טוב ויודע שצריך לסדר את הפיננסים – אבל לא יודע מאיפה להתחיל – זה בדיוק בשבילך.
+  </p>
+
+  <div class="audience-grid">
+    <div class="aud-card">
+      <div class="aud-icon"><i class="fas fa-family"></i></div>
+      <div class="aud-title">משפחות וזוגות</div>
+      <div class="aud-desc">תכנון פנסיוני משותף, ביטוח חיים מותאם, וחיסכון לילדים – כל ההחלטות הגדולות, פעם אחת, כמו שצריך.</div>
+      <span class="aud-tag">תכנון משפחתי</span>
+    </div>
+    <div class="aud-card">
+      <div class="aud-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+      <div class="aud-title">מורים ומחנכים</div>
+      <div class="aud-desc">קרן פנסיה מקיפה, פרישה מוקדמת, תנאים ייחודיים שרוב הסוכנים לא מכירים לעומק.</div>
+      <span class="aud-tag">מגזר חינוך</span>
+    </div>
+    <div class="aud-card">
+      <div class="aud-icon"><i class="fas fa-user-doctor"></i></div>
+      <div class="aud-title">רופאים ורפואה</div>
+      <div class="aud-desc">שעות ארוכות, הכנסה גבוהה, הסכמי ביטוח מקצועי – ומשרדי הקרן לא תמיד עובדים לטובתך.</div>
+      <span class="aud-tag">מגזר רפואה</span>
+    </div>
+    <div class="aud-card">
+      <div class="aud-icon"><i class="fas fa-landmark"></i></div>
+      <div class="aud-title">עובדי מדינה</div>
+      <div class="aud-desc">קרן ותיקה, זכויות מורכבות, מסלולי צבירה שצריך לבדוק כל שנה. בדיוק בשביל זה אני כאן.</div>
+      <span class="aud-tag">מגזר ציבורי</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ PAIN SECTION ══════════════════════════════ -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="section-label">למה הפנסיה שוחקת בשקט</div>
+    <h2 class="section-title">4 בעיות שרוב האנשים<br>לא יודעים שיש להם</h2>
+    <p class="section-sub" style="margin-bottom: 48px;">ולא מדובר ברשלנות – פשוט אף אחד לא הסביר להם את זה.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-number">01</div>
+        <div class="pain-title">דמי ניהול גבוהים שמתחפשים לנורמה</div>
+        <div class="pain-desc">ההפרש בין 2% ל-1.5% נשמע קטן. על פני 25 שנה זה עשרות אלפי שקלים שנעלמים.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-number">02</div>
+        <div class="pain-title">ביטוח כפול שאתה משלם עליו פעמיים</div>
+        <div class="pain-desc">כיסוי אובדן כושר עבודה בפנסיה + פוליסה פרטית – לפעמים אחד מהם מיותר לחלוטין.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-number">03</div>
+        <div class="pain-title">מסלול השקעה ברירת מחדל שלא מתאים לגיל שלך</div>
+        <div class="pain-desc">גיל 40 עם מסלול שמרני = הפסד תשואה מיותרת. בדיקה אחת יכולה לשנות את הסכום הסופי.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-number">04</div>
+        <div class="pain-title">זכויות שלא מימשת ולא ידעת שיש לך</div>
+        <div class="pain-desc">הטבות מס, זיכויים, כספי פיצויים "תקועים" בקרנות ישנות. לפעמים מדובר בסכומים גדולים.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ CASE STUDY CARD ══════════════════════════════ -->
+<section class="viz-section">
+  <div class="viz-inner">
+
+    <div style="text-align:center; margin-bottom:36px;">
+      <div class="section-label">מקרה אמיתי</div>
+      <h2 class="section-title" style="color:var(--navy);">מה קורה כשבודקים<br>את הפנסיה?</h2>
+      <p class="section-sub">מורה לחינוך מיוחד, 43, עפולה — בדיקה אחת, הפרש של +₪66,027.</p>
+    </div>
+
+    <!-- כרטיס תוצאה קומפקטי – לפי המלצת הוועדה -->
+    <div class="case-card">
+
+      <!-- Header: פרופיל -->
+      <div class="case-header">
+        <div class="case-avatar">ד.מ</div>
+        <div>
+          <div class="case-name">ד. מרגלית</div>
+          <div class="case-role">מורה לחינוך מיוחד, עפולה</div>
+          <div class="case-badges">
+            <span class="case-badge">גיל 43</span>
+            <span class="case-badge">שכר ₪16,500</span>
+            <span class="case-badge">צבירה ₪901,141</span>
+            <span class="case-badge">הפקדה ₪3,218/חודש</span>
+            <span class="case-badge">פרישה גיל 64</span>
+            <span class="case-badge">תשואה 4.38%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- גוף: שלושה מספרים בשורה -->
+      <div class="case-body">
+
+        <div class="case-trio">
+          <!-- מצב קיים -->
+          <div class="trio-box trio-bad">
+            <div class="trio-label">מצב קיים</div>
+            <div class="trio-amount bad">₪3,474,595</div>
+            <div class="trio-fee bad-fee">1.5% הפקדה + 0.15% צבירה</div>
+            <div class="trio-total">דמי ניהול: ₪75,107</div>
+          </div>
+
+          <!-- חץ -->
+          <div class="trio-arrow">
+            <i class="fas fa-arrow-left" style="font-size:22px; color:var(--gold);"></i>
+          </div>
+
+          <!-- מסלול מיטבי -->
+          <div class="trio-box trio-good">
+            <div class="trio-label">מסלול מיטבי</div>
+            <div class="trio-amount good">₪3,540,622</div>
+            <div class="trio-fee good-fee">דמי ניהול יורדים לפי צבירה</div>
+            <div class="trio-total">דמי ניהול: ₪30,043</div>
+          </div>
+        </div>
+
+        <!-- ההפרש – המספר הגדול -->
+        <div class="case-diff">
+          <div class="case-diff-label">הפרש לטובת המסלול המיטבי</div>
+          <div class="case-diff-num" id="case-counter">+₪0</div>
+          <div class="case-diff-sub">₪45,064 חיסכון בדמי ניהול בלבד · 21 שנה · ללא שום שינוי אחר</div>
+        </div>
+
+        <!-- אזהרה: 0.15% מצבירה הוא הגנב -->
+        <div class="case-alert">
+          <i class="fas fa-triangle-exclamation" style="color:#92400e; font-size:16px; flex-shrink:0; margin-top:1px;"></i>
+          <div style="font-size:13px; color:#92400e; line-height:1.6;">
+            <strong>0.15% מצבירה = ₪62,945 לאורך 21 שנה.</strong>
+            זה 84% מסך דמי הניהול — והלקוח בדרך כלל לא שם לב לרכיב הזה.
+          </div>
+        </div>
+
+        <!-- ציר זמן ירידת דמי הניהול -->
+        <div class="case-timeline">
+          <div class="case-tl-title">ירידת דמי הניהול לאורך השנים — מסלול דינמי</div>
+          <div class="tl-rows">
+            <div class="tl-row">
+              <span class="tl-age">גיל 43</span>
+              <div class="tl-track"><div class="tl-fill" style="width:62%"></div></div>
+              <span class="tl-bal">₪907K</span>
+              <span class="tl-rates">1.55% + 0.068%</span>
+            </div>
+            <div class="tl-row">
+              <span class="tl-age">גיל 46</span>
+              <div class="tl-track"><div class="tl-fill" style="width:70%"></div></div>
+              <span class="tl-bal">₪1.15M</span>
+              <span class="tl-rates">1.45% + 0.060%</span>
+            </div>
+            <div class="tl-row">
+              <span class="tl-age">גיל 49</span>
+              <div class="tl-track"><div class="tl-fill" style="width:78%"></div></div>
+              <span class="tl-bal">₪1.44M</span>
+              <span class="tl-rates">1.275% + 0.051%</span>
+            </div>
+            <div class="tl-row">
+              <span class="tl-age">גיל 52</span>
+              <div class="tl-track"><div class="tl-fill" style="width:86%"></div></div>
+              <span class="tl-bal">₪1.76M</span>
+              <span class="tl-rates">1.152% + 0.048%</span>
+            </div>
+            <div class="tl-row">
+              <span class="tl-age">גיל 55+</span>
+              <div class="tl-track"><div class="tl-fill" style="width:100%; background:var(--green);"></div></div>
+              <span class="tl-bal">₪2.1M+</span>
+              <span class="tl-rates" style="color:var(--green); font-weight:700;">1.058% + 0.045% ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="https://wa.me/972525810047?text=שלום נשאת, ראיתי את הדוגמה של ד. מרגלית ורוצה לבדוק מה המצב שלי" class="case-cta">
+          <i class="fab fa-whatsapp"></i>
+          בדוק מה המצב שלי ←
+        </a>
+
+        <div class="case-note">* תשואה 4.38% | הפקדה 19.5% | חישוב חודש-חודש עם עדכון מדרגה דינמי</div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════ SIMULATORS ══════════════════════════════ -->
+<section class="sim-section">
+  <div class="section-label">כלים מקצועיים</div>
+  <h2 class="section-title">חשבו בעצמכם</h2>
+  <p class="section-sub">מעדיפים שנעשה זאת עבורכם? <a href="https://surense.com/app/p/lzcXHxM" style="color:var(--navy); font-weight:700; text-decoration:underline;">שירות VIP – לחצו כאן</a></p>
+
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="showTab('pension',this)">
+      <i class="fas fa-piggy-bank"></i> חסכו על דמי ניהול
+    </button>
+    <button class="tab-btn" onclick="showTab('invest',this)">
+      <i class="fas fa-chart-line"></i> תכנון השקעות
+    </button>
+    <button class="tab-btn" onclick="showTab('child',this)">
+      <i class="fas fa-child"></i> חיסכון לילדים
+    </button>
+    <button class="tab-btn" onclick="showTab('risk',this)">
+      <i class="fas fa-shield-halved"></i> ביטוח חיים
+    </button>
+  </div>
+
+  <!-- ── PENSION TAB ── -->
+  <div id="pension" class="tab-content active">
+    <div class="sim-card">
+      <h3 class="sim-card-title"><i class="fas fa-piggy-bank"></i> גלו כמה פנסיה תהיה לכם</h3>
+
+      <div class="sim-vip">
+        <i class="fas fa-crown"></i>
+        <div class="sim-vip-text">
+          <strong>אין לכם נתונים? אין זמן? לא בעיה!</strong><br>
+          <span style="font-size:13px; color:var(--muted);">שירות VIP – אנחנו מבצעים את הסימולציה עבורכם</span><br>
+          <a href="https://surense.com/app/p/lzcXHxM" class="sim-vip-link"><i class="fas fa-bolt"></i> תנו לנו לעשות את זה עבורכם</a>
+        </div>
+      </div>
+
+      <div class="sim-divider">או בצעו הערכה עצמית מהירה</div>
+
+      <!-- מין -->
+      <div class="input-row">
+        <div class="input-label">מין (לחישוב גיל פרישה)</div>
+        <div class="toggle-group">
+          <button class="toggle-btn active" id="btn-gender-m" onclick="setGender('m')">גבר (67)</button>
+          <button class="toggle-btn" id="btn-gender-f" onclick="setGender('f')">אישה (64)</button>
+        </div>
+        <input type="hidden" id="p-gender" value="m">
+      </div>
+
+      <!-- גיל -->
+      <div class="input-row">
+        <div class="input-label">גיל נוכחי <span class="input-val" id="val-p-age">35</span></div>
+        <input type="range" id="p-age" min="20" max="65" value="35" oninput="updateVal('p-age',this.value)">
+      </div>
+
+      <!-- שכר -->
+      <div class="input-row">
+        <div class="input-label">שכר חודשי <span class="input-val" id="val-p-salary">13,000</span></div>
+        <input type="range" id="p-salary" min="6000" max="50000" step="500" value="13000" oninput="updateValFormat('p-salary',this.value)">
+      </div>
+
+      <!-- מסלול -->
+      <div class="input-row">
+        <div class="input-label">מסלול חישוב</div>
+        <div class="toggle-group">
+          <button class="toggle-btn active" id="btn-p-single" onclick="setPensionMode('personal')">יחיד / יחידה</button>
+          <button class="toggle-btn" id="btn-p-couple" onclick="setPensionMode('couple')">תכנון משפחתי</button>
+        </div>
+        <input type="hidden" id="p-mode" value="personal">
+      </div>
+
+      <!-- checkbox אין נתונים -->
+      <label class="checkbox-wrapper" id="cb-wrap-pension" onclick="togglePensionInputs(this)">
+        <input type="checkbox" id="dont-know-cb">
+        <span>אין לי נתוני קופה (יחושב לפי ממוצע)</span>
+      </label>
+
+      <!-- שדות מותאמים אישית -->
+      <div id="pension-custom-inputs">
+        <div class="input-row">
+          <div class="input-label">צבירה קיימת (₪) <span class="input-val" id="val-p-acc">100,000</span></div>
+          <input type="range" id="p-acc-main" min="0" max="2000000" step="10000" value="100000" oninput="updateValFormat('p-acc',this.value)">
+        </div>
+        <div class="input-row">
+          <div class="input-label">דמי ניהול מהפקדה (%) <span class="input-val" id="val-p-fee-dep">2.00%</span></div>
+          <input type="range" id="p-fee-dep" min="0" max="6.0" step="0.1" value="2.0" oninput="updateVal('p-fee-dep',this.value+'%')">
+        </div>
+        <div class="input-row">
+          <div class="input-label">דמי ניהול מצבירה (%) <span class="input-val" id="val-p-fee-acc">0.20%</span></div>
+          <input type="range" id="p-fee-acc" min="0" max="0.5" step="0.01" value="0.20" oninput="updateVal('p-fee-acc',this.value+'%')">
+        </div>
+      </div>
+
+      <button class="sim-btn" onclick="calcPensionCompare()">⚡ חשבו את הרווח הפוטנציאלי!</button>
+
+      <div id="res-pension" class="sim-result" style="display:none;">
+        <div class="compare-grid">
+          <div class="comp-card bad">
+            <div class="comp-title"><i class="fas fa-times-circle"></i> מצב קיים</div>
+            <div class="comp-val">₪<span id="out-p-exist">0</span></div>
+            <div style="font-size:12px; color:var(--muted); margin-top:5px; font-weight:700;">עלות דמי ניהול:<br>₪<span id="out-fees-exist">0</span></div>
+          </div>
+          <div class="comp-card good">
+            <div class="comp-title"><i class="fas fa-crown"></i> המסלול האופטימלי</div>
+            <div class="comp-val">₪<span id="out-p-prop">0</span></div>
+            <div style="font-size:12px; color:var(--green); margin-top:5px; font-weight:800;"><span id="out-rates-prop"></span></div>
+          </div>
+        </div>
+        <div class="diff-banner">
+          💰 הרווח הפוטנציאלי לפנסיה שלכם:
+          <span id="out-p-diff">₪ 0</span>
+        </div>
+        <a id="wa-pension-link" href="#" class="sim-wa-btn">
+          <i class="fab fa-whatsapp"></i> רוצים לעבור למסלול המשתלם!
+        </a>
+        <div class="sim-note">* הסימולציה היא הערכה בלבד לפי תשואה ממוצעת. לחישוב מדויק – פנו לייעוץ אישי.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INVEST TAB ── -->
+  <div id="invest" class="tab-content">
+    <div class="sim-card">
+      <h3 class="sim-card-title"><i class="fas fa-chart-line"></i> גלו את הערך העתידי שלכם</h3>
+
+      <div class="sim-vip">
+        <i class="fas fa-crown"></i>
+        <div class="sim-vip-text">
+          <strong>רוצים תכנית השקעות מותאמת אישית?</strong><br>
+          <span style="font-size:13px; color:var(--muted);">שירות VIP – בניית תיק מותאם לשני בני הזוג יחד</span><br>
+          <a href="https://surense.com/app/p/lzcXHxM" class="sim-vip-link"><i class="fas fa-bolt"></i> לשירות VIP</a>
+        </div>
+      </div>
+
+      <div class="sim-divider">או חשבו בעצמכם</div>
+
+      <div class="toggle-group" style="margin-bottom:20px;">
+        <button class="toggle-btn active" onclick="setInvestMode('accumulation',this)">כמה כסף יהיה לי?</button>
+        <button class="toggle-btn" onclick="setInvestMode('target',this)">איך להגיע ליעד?</button>
+      </div>
+
+      <div id="group-acc">
+        <div class="input-row">
+          <div class="input-label">הפקדה חודשית (₪) <span class="input-val" id="val-inv-monthly">2,000</span></div>
+          <input type="range" id="inv-monthly" min="300" max="20000" step="100" value="2000" oninput="updateValFormat('inv-monthly',this.value)">
+        </div>
+      </div>
+      <div id="group-target" style="display:none;">
+        <div class="input-row">
+          <div class="input-label">סכום יעד (₪) <span class="input-val" id="val-inv-goal">1,000,000</span></div>
+          <input type="range" id="inv-goal-sum" min="100000" max="5000000" step="50000" value="1000000" oninput="updateValFormat('inv-goal',this.value)">
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-label">תקופת חיסכון (שנים) <span class="input-val" id="val-inv-years">15</span></div>
+        <input type="range" id="inv-years" min="1" max="40" step="1" value="15" oninput="updateVal('inv-years',this.value)">
+      </div>
+      <div class="input-row">
+        <div class="input-label">מסלול השקעה</div>
+        <select id="inv-track" class="sim-select">
+          <option value="0.0438">סולידי (~4.38% לשנה)</option>
+          <option value="0.06" selected>בינוני (~6% לשנה)</option>
+          <option value="0.10">מוגבר סיכון (~10% לשנה)</option>
+        </select>
+      </div>
+
+      <button class="sim-btn" onclick="calcInvest()">⚡ גלו את הפוטנציאל!</button>
+
+      <div id="res-invest" class="sim-result" style="display:none;">
+        <div style="text-align:center; margin-bottom:16px;">
+          <div style="font-size:14px; font-weight:700; color:var(--muted);" id="inv-res-label">הסכום הצפוי:</div>
+          <div style="font-size:40px; font-weight:900; color:var(--navy); font-family:'Frank Ruhl Libre',serif; margin:8px 0;" id="out-inv-main"></div>
+        </div>
+        <div style="height:180px; margin-top:12px;"><canvas id="investChart"></canvas></div>
+        <a id="wa-invest-link" href="#" class="sim-wa-btn" style="margin-top:18px;">
+          <i class="fab fa-whatsapp"></i> בואו נתכנן את ההשקעה
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CHILD TAB ── -->
+  <div id="child" class="tab-content">
+    <div class="sim-card">
+      <h3 class="sim-card-title"><i class="fas fa-child"></i> זינוק כלכלי לילדים</h3>
+
+      <div class="sim-vip">
+        <i class="fas fa-crown"></i>
+        <div class="sim-vip-text">
+          <strong>רוצים לבחור את המסלול הנכון לילד שלכם?</strong><br>
+          <span style="font-size:13px; color:var(--muted);">שירות VIP – ייעוץ מותאם למשפחה שלכם</span><br>
+          <a href="https://surense.com/app/p/lzcXHxM" class="sim-vip-link"><i class="fas fa-bolt"></i> לשירות VIP</a>
+        </div>
+      </div>
+
+      <div class="sim-divider">השוואת מסלולים לפי גיל הילד</div>
+
+      <div class="input-row">
+        <div class="input-label">גיל הילד <span class="input-val" id="val-child-age">0</span></div>
+        <input type="range" id="child-age-slider" min="0" max="17" value="0" oninput="updateVal('child-age',this.value)">
+      </div>
+
+      <button class="sim-btn" onclick="calcChild()">⚡ השוו מסלולים עכשיו!</button>
+
+      <div id="res-child" class="sim-result" style="display:none; background:transparent; border:none; padding:0;">
+        <div id="out-child-details" style="display:flex; flex-direction:column; gap:10px; margin-top:18px;"></div>
+        <a id="wa-child-link" href="#" class="sim-wa-btn" style="margin-top:18px;">
+          <i class="fab fa-whatsapp"></i> אני רוצה להבטיח את עתיד הילדים
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RISK TAB ── -->
+  <div id="risk" class="tab-content">
+    <div class="sim-card">
+      <h3 class="sim-card-title"><i class="fas fa-shield-halved"></i> הגנה כלכלית למשפחה</h3>
+
+      <div class="sim-vip">
+        <i class="fas fa-crown"></i>
+        <div class="sim-vip-text">
+          <strong>רוצים הצעת ביטוח מתאימה למשפחתכם?</strong><br>
+          <span style="font-size:13px; color:var(--muted);">שירות VIP – כיסוי ביטוחי מותאם אישית</span><br>
+          <a href="https://surense.com/app/p/lzcXHxM" class="sim-vip-link"><i class="fas fa-bolt"></i> לשירות VIP</a>
+        </div>
+      </div>
+
+      <div class="sim-divider">הערכת פרמיה עצמאית</div>
+
+      <div class="input-row">
+        <div class="input-label">גיל המבוטח/ת <span class="input-val" id="val-risk-age">35</span></div>
+        <input type="range" id="risk-age" min="18" max="79" value="35" oninput="updateVal('risk-age',this.value)">
+      </div>
+      <div class="input-row">
+        <div class="input-label">סכום ביטוח</div>
+        <div class="toggle-group">
+          <button class="toggle-btn active" id="btn-risk-500" onclick="setRiskSum('500000')">חצי מיליון ₪</button>
+          <button class="toggle-btn" id="btn-risk-1m" onclick="setRiskSum('1000000')">מיליון ₪</button>
+        </div>
+        <input type="hidden" id="risk-sum" value="500000">
+      </div>
+      <div class="input-row">
+        <div class="input-label">האם את/ה מעשן/ת?</div>
+        <div class="toggle-group">
+          <button class="toggle-btn active" id="btn-risk-no" onclick="setRiskSmoker('no')">לא מעשן</button>
+          <button class="toggle-btn" id="btn-risk-yes" onclick="setRiskSmoker('yes')">מעשן</button>
+        </div>
+        <input type="hidden" id="risk-smoker" value="no">
+      </div>
+
+      <button class="sim-btn" onclick="calcRisk()">חשבו עלות חודשית מוערכת</button>
+
+      <div id="res-risk" class="sim-result" style="display:none; text-align:center;">
+        <div style="font-size:14px; font-weight:700; color:var(--muted);">פרמיה מוערכת לאחר הנחה (שנה א'):</div>
+        <div style="font-size:44px; font-weight:900; color:var(--navy); font-family:'Frank Ruhl Libre',serif; margin:10px 0;">₪<span id="out-risk">0</span></div>
+        <div id="risk-discount-msg" style="font-size:14px; font-weight:800; color:var(--green); margin-bottom:14px;"></div>
+        <a id="wa-risk-link" href="#" class="sim-wa-btn"><i class="fab fa-whatsapp"></i> קבלו הצעה משתלמת במיוחד</a>
+        <div style="margin-top:20px; background:var(--cream); border-right:4px solid var(--border); border-radius:10px; padding:14px 16px; text-align:right;">
+          <div style="font-size:12px; font-weight:700; color:var(--muted); margin-bottom:6px;">גילוי נאות – חשוב לקרוא</div>
+          <p style="font-size:11px; color:var(--muted); font-weight:500; line-height:1.7; margin:0;">המידע המוצג הינו להמחשה כללית בלבד ואינו מהווה הצעה לביטוח, ייעוץ ביטוחי, הצעת מחיר מחייבת, או חוות דעת מקצועית. הנתונים מבוססים על הנחות חישוביות המשתנות בהתאם לגורמים רבים. הפרמיה הסופית נקבעת על-ידי חברת הביטוח בהתאם לחיתום רפואי ופרמטרים נוספים.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════ TESTIMONIALS ══════════════════════════════ -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <div class="section-label">לקוחות מספרים</div>
+    <h2 class="section-title">מה שהלקוחות אומרים</h2>
+    <p class="section-sub" style="margin-bottom:48px;">לא הבטחות – תוצאות.</p>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">
+          "נשאת גילה שאני משלמת דמי ניהול כפולים ויש לי ביטוח אובדן כושר כפול. חיסכון של מאות שקלים בחודש, בלי לשנות שום דבר בחיים שלי."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">מ.כ</div>
+          <div>
+            <div class="testi-name">מ. כהן</div>
+            <div class="testi-role">מורה, בית ספר יסודי, תל אביב</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">
+          "כרופא אני עסוק מדי לנהל את הפנסיה שלי. נשאת עשה הכל – בדק, הורד דמי ניהול, שינה מסלול. שיחה אחת של שעה חסכה לי הרבה כסף."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">ד.ל</div>
+          <div>
+            <div class="testi-name">ד"ר ל.</div>
+            <div class="testi-role">רופא מתמחה, מרכז רפואי שיבא</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">
+          "הייתי לפני פרישה ולא ידעתי שיש לי כספי פיצויים תקועים בשתי קרנות ישנות. נשאת איחד הכל ועזר לי לקבע את הזכויות. יצאתי הרבה יותר טוב."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">א.מ</div>
+          <div>
+            <div class="testi-name">א. מזרחי</div>
+            <div class="testi-role">עובד עיריית חיפה, גמלאי</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
+<section class="about-section">
+  <div class="about-grid">
+    <div class="about-photo-wrap">
+      <img src="data:image/jpeg;base64,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" 
+     alt="נשאת גאנם – מתכנן פנסיוני ופיננסי"
+     style="width:180px; height:240px; border-radius:16px; object-fit:cover; object-position:center top; display:block; margin:0 auto 16px;">
+      <div class="about-name">נשאת גאנם</div>
+      <div class="about-title-tag">מתכנן פנסיוני ופיננסי עצמאי</div>
+    </div>
+    <div class="about-body">
+      <div class="section-label">מי אני</div>
+      <h2 class="section-title" style="font-size:30px;">לא סוכן שמייצג חברת ביטוח – מתכנן שמייצג אותך</h2>
+      <p class="about-text">
+        אחרי <strong>10 שנים בתחום</strong>, הבנתי שהבעיה האמיתית אינה מוצרים גרועים – היא חוסר ידע. רוב האנשים לא יודעים מה יש להם, כמה הם משלמים, ולמה.
+      </p>
+      <p class="about-text">
+        אני עובד <strong>ללא כפיפות לחברת ביטוח</strong>. אני בוחר מבין כל הגופים המוסדיים ובוחר את מה שמשתלם <strong>לך</strong> – לא את מה שמשלם לי הכי טוב.
+      </p>
+      <p class="about-text">
+        מתמחה בעובדי מגזר ציבורי, חינוך ורפואה – כי יש להם תנאים ייחודיים שדורשים ידע עמוק.
+      </p>
+      <div class="about-creds">
+        <div class="cred-item"><i class="fas fa-certificate"></i> רישיון ייעוץ פנסיוני תקף</div>
+        <div class="cred-item"><i class="fas fa-scale-balanced"></i> חבר בארגון יועצי הפנסיה</div>
+        <div class="cred-item"><i class="fas fa-building-columns"></i> עובד מול כל קרנות הפנסיה הגדולות</div>
+        <div class="cred-item"><i class="fas fa-phone-volume"></i> <a href="tel:0525810047" style="color:var(--text); text-decoration:none;">052-581-0047</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════ PASSPORT CARD ══════════════════════════════ -->
+<section class="passport-section">
+  <div class="passport-inner">
+    <div class="passport-icon">✈️</div>
+    <div>
+      <div class="passport-title">טסים? ביטוח נסיעות בקליק</div>
+      <p class="passport-text">PassportCard – ביטוח הנסיעות שמשלם ישירות במקום, בלי טפסים ובלי המתנה. לקוחותיי מקבלים הטבה מיוחדת.</p>
+      <a href="https://wa.me/972525810047?text=שלום נשאת, אני מעוניין ב-PassportCard" class="btn-passport">
+        <i class="fas fa-plane-departure"></i> פרטים על PassportCard
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ STICKY FOOTER ══════════════════════════════ -->
+<div class="sticky-footer">
+  <a href="tel:0525810047" class="sticky-btn sticky-call"><i class="fas fa-phone"></i> חיוג</a>
+  <a href="https://wa.me/972525810047?text=שלום נשאת, אני רוצה לדעת מה המצב של הפנסיה שלי" class="sticky-btn sticky-wa"><i class="fab fa-whatsapp"></i> וואטסאפ</a>
+  <a href="https://surense.com/app/p/lzcXHxM" class="sticky-btn sticky-vip"><i class="fas fa-crown"></i> VIP</a>
+  <button onclick="downloadVCard()" class="sticky-btn sticky-save" title="שמור אנשי קשר"><i class="fas fa-user-plus"></i> שמור</button>
+</div>
+
+<script>
+const PHONE = "972525810047";
+let myChart = null;
+let currentInvestMode = 'accumulation';
+
+function showTab(id, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+
+function updateVal(id, val) { const d = document.getElementById('val-'+id); if(d) d.innerText = val; }
+function updateValFormat(id, val) { const d = document.getElementById('val-'+id); if(d) d.innerText = parseInt(val).toLocaleString('he-IL'); }
+
+/* PENSION TABLE (exact from index86) */
+const pensionTable = [
+  {min:0,       max:49999,   p:[2.5,0.18],  c:[2.3,0.17]},
+  {min:50000,   max:99999,   p:[1.95,0.17], c:[1.79,0.16]},
+  {min:100000,  max:199999,  p:[1.93,0.15], c:[1.78,0.14]},
+  {min:200000,  max:299999,  p:[1.90,0.10], c:[1.75,0.09]},
+  {min:300000,  max:399999,  p:[1.85,0.09], c:[1.70,0.08]},
+  {min:400000,  max:499999,  p:[1.80,0.09], c:[1.66,0.08]},
+  {min:500000,  max:599999,  p:[1.75,0.08], c:[1.61,0.08]},
+  {min:600000,  max:699999,  p:[1.70,0.08], c:[1.56,0.07]},
+  {min:700000,  max:799999,  p:[1.65,0.08], c:[1.52,0.07]},
+  {min:800000,  max:899999,  p:[1.60,0.07], c:[1.52,0.07]},
+  {min:900000,  max:999999,  p:[1.55,0.07], c:[1.47,0.07]},
+  {min:1000000, max:Infinity,p:[1.50,0.06], c:[1.43,0.06]}
+];
+
+function setGender(g) {
+  document.getElementById('p-gender').value = g;
+  ['m','f'].forEach(x => document.getElementById('btn-gender-'+x).classList.remove('active'));
+  document.getElementById('btn-gender-'+g).classList.add('active');
+}
+function setPensionMode(mode) {
+  document.getElementById('p-mode').value = mode;
+  ['single','couple'].forEach(x => { const e=document.getElementById('btn-p-'+x); if(e) e.classList.remove('active'); });
+  const map = {personal:'single', couple:'couple'};
+  const btn = document.getElementById('btn-p-'+map[mode]);
+  if(btn) btn.classList.add('active');
+}
+function togglePensionInputs(el) {
+  const isChecked = el.querySelector('input').checked;
+  const c = document.getElementById('pension-custom-inputs');
+  if(isChecked) { el.classList.add('active'); c.style.opacity='0.3'; c.style.pointerEvents='none'; }
+  else { el.classList.remove('active'); c.style.opacity='1'; c.style.pointerEvents='auto'; }
+}
+function projectPension(age, targetAge, startBalance, salary, feeDep, feeAcc) {
+  const months = (targetAge - age) * 12;
+  if(months <= 0) return { bal: startBalance, fees: 0 };
+  const deposit = salary * 0.185;
+  const yieldMonthly = 0.0438 / 12;
+  const feeDepRate = feeDep / 100;
+  const feeAccMonthly = feeAcc / 100 / 12;
+  let bal = startBalance, totalFees = 0;
+  for(let i = 0; i < months; i++) {
+    let depFee = deposit * feeDepRate;
+    bal += (deposit - depFee);
+    let accFee = bal * feeAccMonthly;
+    bal -= accFee;
+    bal = bal * (1 + yieldMonthly);
+    totalFees += (depFee + accFee);
+  }
+  return { bal: Math.round(bal), fees: Math.round(totalFees) };
+}
+function projectPensionDynamic(age, targetAge, startBalance, salary, mode) {
+  const months = (targetAge - age) * 12;
+  if(months <= 0) return { bal: startBalance, fees: 0 };
+  const deposit = salary * 0.185;
+  const yieldMonthly = 0.0438 / 12;
+  let bal = startBalance, totalFees = 0;
+  for(let i = 0; i < months; i++) {
+    const row = pensionTable.find(r => bal >= r.min && bal <= r.max) || pensionTable[pensionTable.length-1];
+    const rates = mode === 'couple' ? row.c : row.p;
+    let depFee = deposit * (rates[0]/100);
+    bal += (deposit - depFee);
+    let accFee = bal * (rates[1]/100/12);
+    bal -= accFee;
+    bal = bal * (1 + yieldMonthly);
+    totalFees += (depFee + accFee);
+  }
+  return { bal: Math.round(bal), fees: Math.round(totalFees) };
+}
+function calcPensionCompare() {
+  const isUnknown = document.getElementById('dont-know-cb').checked;
+  const gender = document.getElementById('p-gender').value;
+  const targetAge = gender === 'm' ? 67 : 64;
+  const age = parseInt(document.getElementById('p-age').value);
+  const salary = parseInt(document.getElementById('p-salary').value);
+  const startBalance = isUnknown ? 200000 : parseInt(document.getElementById('p-acc-main').value);
+  const existFeeDep = isUnknown ? 2.0 : parseFloat(document.getElementById('p-fee-dep').value);
+  const existFeeAcc = isUnknown ? 0.2 : parseFloat(document.getElementById('p-fee-acc').value);
+  const mode = document.getElementById('p-mode').value;
+  const currentProj = projectPension(age, targetAge, startBalance, salary, existFeeDep, existFeeAcc);
+  const proposedProj = projectPensionDynamic(age, targetAge, startBalance, salary, mode);
+  const diff = proposedProj.bal - currentProj.bal;
+  document.getElementById('out-p-exist').innerText = currentProj.bal.toLocaleString('he-IL');
+  document.getElementById('out-fees-exist').innerText = currentProj.fees.toLocaleString('he-IL');
+  document.getElementById('out-p-prop').innerText = proposedProj.bal.toLocaleString('he-IL');
+  document.getElementById('out-rates-prop').innerText = 'דמי ניהול יורדים לפי צבירה';
+  document.getElementById('out-p-diff').innerText = diff > 0 ? '+\u20aa ' + diff.toLocaleString('he-IL') : '\u20aa 0';
+  document.getElementById('res-pension').style.display = 'block';
+  const msg = `\u05d4\u05d9\u05d9 \u05e0\u05e9\u05d0\u05ea, \u05d1\u05d9\u05e6\u05e2\u05ea\u05d9 \u05e1\u05d9\u05de\u05d5\u05dc\u05e6\u05d9\u05d9\u05ea \u05e4\u05e0\u05e1\u05d9\u05d4 \u05d5\u05d2\u05d9\u05dc\u05d9\u05ea\u05d9 \u05e9\u05d0\u05e0\u05d9 \u05d9\u05db\u05d5\u05dc \u05dc\u05d4\u05e8\u05d5\u05d5\u05d9\u05d7 \u05e2\u05d5\u05d3 ${diff.toLocaleString('he-IL')} \u05e9"\u05d7. \u05d0\u05e9\u05de\u05d7 \u05dc\u05d4\u05e6\u05e2\u05d4 \u05de\u05d3\u05d5\u05d9\u05e7\u05ea!`;
+  document.getElementById('wa-pension-link').href = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+}
+
+/* INVEST SIMULATOR */
+function setInvestMode(mode, btn) {
+  currentInvestMode = mode;
+  document.querySelectorAll('#invest .toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('group-acc').style.display = (mode === 'accumulation') ? 'block' : 'none';
+  document.getElementById('group-target').style.display = (mode === 'target') ? 'block' : 'none';
+}
+function calcInvest() {
+  const years = parseInt(document.getElementById('inv-years').value);
+  const rate = parseFloat(document.getElementById('inv-track').value);
+  const r_monthly = rate / 12;
+  const months = years * 12;
+  let monthly_val = 0, total_accumulated = 0;
+  if(currentInvestMode === 'accumulation') {
+    monthly_val = parseFloat(document.getElementById('inv-monthly').value);
+    total_accumulated = monthly_val * ((Math.pow(1 + r_monthly, months) - 1) / r_monthly);
+    document.getElementById('inv-res-label').innerText = 'ההון הצפוי לעמוד לרשותכם:';
+    document.getElementById('out-inv-main').innerText = '\u20aa ' + Math.round(total_accumulated).toLocaleString('he-IL');
+  } else {
+    const target_sum = parseFloat(document.getElementById('inv-goal-sum').value);
+    monthly_val = target_sum / ((Math.pow(1 + r_monthly, months) - 1) / r_monthly);
+    document.getElementById('inv-res-label').innerText = 'ההפקדה החודשית הנדרשת:';
+    document.getElementById('out-inv-main').innerText = '\u20aa ' + Math.round(monthly_val).toLocaleString('he-IL');
+  }
+  document.getElementById('res-invest').style.display = 'block';
+  updateInvestChart(monthly_val, years, r_monthly);
+  const txt = `https://wa.me/${PHONE}`;
+  document.getElementById('wa-invest-link').href = txt;
+}
+function updateInvestChart(p, years, r) {
+  let data = [], labels = [];
+  for(let i = 0; i <= years; i += Math.max(1, Math.floor(years/10))) {
+    let fv = p * ((Math.pow(1 + r, i * 12) - 1) / r);
+    data.push(Math.round(fv)); labels.push('שנה ' + i);
+  }
+  if(myChart) myChart.destroy();
+  myChart = new Chart(document.getElementById('investChart'), {
+    type: 'line',
+    data: { labels, datasets: [{ data, borderColor: '#c9a84c', backgroundColor: 'rgba(201,168,76,0.08)', fill: true, tension: 0.4 }] },
+    options: { plugins: { legend: { display: false } }, maintainAspectRatio: false,
+      scales: { y: { ticks: { callback: v => '\u20aa'+Math.round(v/1000)+'K' } } }
+    }
+  });
+}
+
+/* CHILD SIMULATOR */
+function calcChild() {
+  const age = parseInt(document.getElementById('child-age-slider').value);
+  const rem = 18 - age;
+  if(rem <= 0) return;
+  const p = 114;
+  const fv = (rate) => Math.round(p * ((Math.pow(1 + rate/12, rem * 12) - 1) / (rate/12))).toLocaleString('he-IL');
+  document.getElementById('out-child-details').innerHTML = `
+    <div style="background:#f9fafb;padding:14px;border-radius:12px;display:flex;justify-content:space-between;border:1.5px solid #e5e7eb;">
+      <div style="font-weight:700;">מסלול סולידי (4.38%)</div><div style="font-weight:900;">\u20aa ${fv(0.0438)}</div>
+    </div>
+    <div style="background:#f9fafb;padding:14px;border-radius:12px;display:flex;justify-content:space-between;border:1.5px solid #e5e7eb;">
+      <div style="font-weight:700;">מסלול בינוני (6%)</div><div style="font-weight:900;">\u20aa ${fv(0.06)}</div>
+    </div>
+    <div style="background:#f0fdf4;padding:14px;border-radius:12px;display:flex;justify-content:space-between;border:2px solid var(--green);">
+      <div style="font-weight:700;">מוגבר סיכון (10%)</div><div style="font-weight:900;color:var(--green);font-size:20px;">\u20aa ${fv(0.10)}</div>
+    </div>
+  `;
+  document.getElementById('res-child').style.display = 'block';
+  document.getElementById('wa-child-link').href = `https://wa.me/${PHONE}`;
+}
+
+/* RISK (LIFE INSURANCE) SIMULATOR */
+function setRiskSum(sum) {
+  document.getElementById('risk-sum').value = sum;
+  document.getElementById('btn-risk-500').classList.toggle('active', sum == '500000');
+  document.getElementById('btn-risk-1m').classList.toggle('active', sum == '1000000');
+}
+function setRiskSmoker(val) {
+  document.getElementById('risk-smoker').value = val;
+  document.getElementById('btn-risk-yes').classList.toggle('active', val == 'yes');
+  document.getElementById('btn-risk-no').classList.toggle('active', val == 'no');
+}
+const table_1M_no = {18:55.36,19:55.36,20:55.36,21:55.36,22:55.36,23:55.36,24:55.36,25:55.97,26:55.97,27:55.97,28:55.97,29:56.58,30:56.58,31:57.18,32:58.40,33:60.00,34:61.67,35:64.17,36:68.33,37:71.67,38:76.67,39:83.33,40:88.33,41:97.65,42:104.74,43:112.88,44:121.93,45:132.30,46:144.12,47:157.50,48:172.59,49:189.92,50:209.34,51:231.53,52:256.59,53:285.07,54:299.86,55:314.65,56:351.52,57:393.28,58:440.77,59:494.44,60:555.33,61:624.28,62:702.45,63:791.12,64:891.33,65:1004.97,66:1133.65,67:1279.25,68:1444.10,69:1630.65,70:1841.70,71:2080.40,72:2350.25,73:2655.21,74:2999.73,75:3388.93,76:3828.19,77:4323.67,78:4882.39,79:5511.92};
+const table_1M_yes = {18:77.87,19:77.87,20:77.87,21:77.87,22:78.47,23:78.47,24:78.47,25:79.08,26:79.69,27:80.30,28:80.30,29:80.91,30:80.91,31:81.52,32:83.95,33:86.99,34:90.64,35:95.51,36:102.20,37:110.72,38:118.63,39:130.18,40:142.35,41:156.34,42:173.98,43:192.23,44:214.74,45:240.29,46:267.67,47:299.30,48:336.41,49:376.56,50:422.18,51:470.85,52:471.45,53:476.62,54:476.62,55:503.07,56:551.67,57:614.03,58:675.52,59:762.48,60:858.03,61:981.84,62:1104.11,63:1238.39,64:1374.22,65:1543.31,66:1715.74,67:1931.84,68:2158.64,69:2349.51,70:2968.65,71:3388.44,72:3886.39,73:4427.36,74:5015.23,75:5541.61,76:5788.45,77:6354.52,78:6966.31,79:7627.22};
+const table_500K_no = {18:27.68,19:27.68,20:27.68,21:27.68,22:27.68,23:27.68,24:27.68,25:27.98,26:27.98,27:27.98,28:27.98,29:28.29,30:28.29,31:28.59,32:29.20,33:30.00,34:30.83,35:32.08,36:34.17,37:35.83,38:38.33,39:41.67,40:44.17,41:48.83,42:52.37,43:56.44,44:60.97,45:66.15,46:72.06,47:78.75,48:86.30,49:94.96,50:104.67,51:115.76,52:128.30,53:142.54,54:149.93,55:157.33,56:175.76,57:196.64,58:220.39,59:247.22,60:277.67,61:312.14,62:351.23,63:395.56,64:445.67,65:502.49,66:566.83,67:639.63,68:722.05,69:815.33,70:920.85,71:1040.20,72:1175.13,73:1327.61,74:1499.87,75:1694.47,76:1914.09,77:2161.83,78:2441.19,79:2755.96};
+const table_500K_yes = {18:38.93,19:38.93,20:38.93,21:38.93,22:39.24,23:39.24,24:39.24,25:39.54,26:39.85,27:40.15,28:40.15,29:40.45,30:40.45,31:40.76,32:41.97,33:43.50,34:45.32,35:47.75,36:51.10,37:55.36,38:59.31,39:65.09,40:71.17,41:78.17,42:86.99,43:96.12,44:107.37,45:120.15,46:133.83,47:149.65,48:168.20,49:188.28,50:211.09,51:235.42,52:235.72,53:238.31,54:238.31,55:251.54,56:275.84,57:307.02,58:337.76,59:381.24,60:429.02,61:490.92,62:552.06,63:619.19,64:687.11,65:771.65,66:857.87,67:965.92,68:1079.32,69:1174.75,70:1484.32,71:1694.22,72:1943.20,73:2213.68,74:2507.62,75:2770.81,76:2894.23,77:3177.26,78:3483.16,79:3813.61};
+function calcRisk() {
+  const age = parseInt(document.getElementById('risk-age').value);
+  const smoker = document.getElementById('risk-smoker').value;
+  const sum = parseInt(document.getElementById('risk-sum').value);
+  let base = (sum === 1000000) ? (smoker === 'yes' ? table_1M_yes[age] : table_1M_no[age]) : (smoker === 'yes' ? table_500K_yes[age] : table_500K_no[age]);
+  let disc = age < 30 ? 30 : (sum === 1000000 ? 60 : 55);
+  const final = base * (1 - disc/100);
+  document.getElementById('out-risk').innerText = final.toFixed(2);
+  document.getElementById('risk-discount-msg').innerText = `\u2714 \u05d4\u05de\u05e2\u05e8\u05db\u05ea \u05d9\u05d9\u05e9\u05de\u05d4 \u05d4\u05e0\u05d7\u05d4 \u05e9\u05dc ${disc}%!`;
+  document.getElementById('res-risk').style.display = 'block';
+  document.getElementById('wa-risk-link').href = `https://wa.me/${PHONE}`;
+}
+
+/* CASE STUDY CARD – counter animation */
+function runCaseCounter() {
+  const el = document.getElementById('case-counter');
+  if (!el) return;
+  const target = 66027;
+  const duration = 1800;
+  const start = performance.now();
+  function tick(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.innerText = '+\u20aa' + Math.round(target * eased).toLocaleString('he-IL');
+    if (t < 1) requestAnimationFrame(tick);
+    else el.innerText = '+\u20aa66,027';
+  }
+  requestAnimationFrame(tick);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const card = document.querySelector('.case-diff-num');
+  if (!card) return;
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { runCaseCounter(); obs.disconnect(); }
+    });
+  }, { threshold: 0.5 });
+  obs.observe(card);
+});
+</script>
+</body>
+</html>
